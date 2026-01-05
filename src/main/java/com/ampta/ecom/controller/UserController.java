@@ -1,5 +1,8 @@
-package com.ampta.ecom;
+package com.ampta.ecom.controller;
 
+import com.ampta.ecom.dto.request.UserRequest;
+import com.ampta.ecom.dto.response.UserResponse;
+import com.ampta.ecom.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,26 +19,26 @@ public class UserController {
 
 
     @GetMapping
-    public ResponseEntity<List<User>> getUsers() {
+    public ResponseEntity<List<UserResponse>> getUsers() {
         return new ResponseEntity<>(userService.getUsers(),HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<User> getUser(@PathVariable Long id) {
+    public ResponseEntity<UserResponse> getUser(@PathVariable Long id) {
         return userService.getUserById(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
 
     @PostMapping
-    public ResponseEntity<String> createUsers(@RequestBody User user) {
-     userService.addUser(user);
+    public ResponseEntity<String> createUsers(@RequestBody UserRequest userRequest) {
+     userService.addUser(userRequest);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<String> updateUsers(@PathVariable Long id, @RequestBody User updateUser) {
-        boolean updated = userService.updateUser(id, updateUser);
+    public ResponseEntity<String> updateUsers(@PathVariable Long  id, @RequestBody UserRequest updateUserRequest) {
+        boolean updated = userService.updateUser(id, updateUserRequest);
         if(updated)
             return ResponseEntity.ok("User updated successfully");
 
