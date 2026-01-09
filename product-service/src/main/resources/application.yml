@@ -5,15 +5,30 @@ spring:
   application:
     name: product-service
   datasource:
-    url: jdbc:postgresql://localhost:5432/product_db
-    username: root
-    password: root
+    url: jdbc:mysql://localhost:3307/ampta
+    username: ampta
+    password: ampta
   jpa:
-    database: POSTGRESQL
     show-sql: true
     hibernate:
       ddl-auto: update
-    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    database-platform: org.hibernate.dialect.MySQLDialect
+    properties:
+      hibernate:
+        format_sql: true
+
+
+# neon tech
+#    url: jdbc:postgresql://localhost:5432/product_db
+#    url: jdbc:postgresql://ep-dry-hall-ah7k2n01-pooler.c-3.us-east-1.aws.neon.tech/product?sslmode=require&channel_binding=require
+#    username: neondb_owner
+#    password: npg_1Fa6RnWrpJvi
+#  jpa:
+#    database: POSTGRESQL
+#    show-sql: true
+#    hibernate:
+#      ddl-auto: update
+#    database-platform: org.hibernate.dialect.PostgreSQLDialect
 
 #  h2:
 #    console:
