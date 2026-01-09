@@ -5,14 +5,15 @@ spring:
   application:
     name: product-service
   datasource:
-    url: jdbc:mysql://localhost:3307/ampta
-    username: ampta
-    password: ampta
+    url: jdbc:postgresql://localhost:5432/product_db
+    username: root
+    password: root
   jpa:
+    database: POSTGRESQL
     show-sql: true
     hibernate:
       ddl-auto: update
-    database-platform: org.hibernate.dialect.MySQLDialect
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
     properties:
       hibernate:
         format_sql: true

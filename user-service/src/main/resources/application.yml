@@ -6,7 +6,7 @@ spring:
     name: user-service
   data:
     mongodb:
-      uri: mongodb+srv://ampta:bilsan123@ampta.etdiavi.mongodb.net/?appName=ampta
+      uri: mongodb://localhost:27017/
       database: userdb
 
 
