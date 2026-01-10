@@ -1,0 +1,12 @@
+
+spring:
+  application:
+    name: config-server
+
+  profiles:
+    active: dev
+
+build:
+  id: ${BUILD_ID}
+  version: ${BUILD_VERSION}
+  name: ${BUILD_NAME}
